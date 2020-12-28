@@ -6,6 +6,7 @@
             app:summaryOn="Turn on hotspot when charging, turn off when not"
             app:title="Active" />
 
+	<!--
         <ListPreference
             app:defaultValue="0"
             app:entries="@array/wifi_recheck_entries"
@@ -13,6 +14,7 @@
             app:key="wifi_recheck"
             app:title="Wifi Recheck"
             app:useSimpleSummaryProvider="true" />
+	-->
 
   </PreferenceCategory>
 

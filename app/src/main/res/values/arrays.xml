@@ -11,6 +11,7 @@
     </string-array>
 
     <!-- Wifi Recheck Preference -->
+    <!--
     <string-array name="wifi_recheck_entries">
         <item>Never</item>
         <item>5 minutes</item>
@@ -22,4 +23,5 @@
         <item>5</item>
         <item>10</item>
     </string-array>
+    -->
 </resources>
