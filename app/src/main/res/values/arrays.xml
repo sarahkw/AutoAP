@@ -10,14 +10,14 @@
         <item>reply_all</item>
     </string-array>
 
-    <!-- SSID Recheck Preference -->
-    <string-array name="ssid_recheck_entries">
+    <!-- Wifi Recheck Preference -->
+    <string-array name="wifi_recheck_entries">
         <item>Never</item>
         <item>5 minutes</item>
         <item>10 minutes</item>
     </string-array>
 
-    <string-array name="ssid_recheck_values">
+    <string-array name="wifi_recheck_values">
         <item>0</item>
         <item>5</item>
         <item>10</item>

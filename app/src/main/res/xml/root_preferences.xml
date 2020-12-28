@@ -1,35 +1,20 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <PreferenceCategory app:title="Main">
+  <PreferenceCategory app:title="Settings">
         <SwitchPreferenceCompat
             app:key="active"
             app:summaryOn="Turn on hotspot when charging, turn off when not"
             app:title="Active" />
 
-  </PreferenceCategory>
-
-  <PreferenceCategory app:title="SSID Check">
-
-        <SwitchPreferenceCompat
-            app:key="ssid_check"
-            app:summaryOn="Only turn on hotspot when specified SSID is not found"
-            app:title="Enabled" />
-
-        <EditTextPreference
-	    app:dependency="ssid_check"
-            app:key="ssid"
-            app:title="SSID"
-            app:useSimpleSummaryProvider="true" />
-
         <ListPreference
-	    app:dependency="ssid_check"
             app:defaultValue="0"
-            app:entries="@array/ssid_recheck_entries"
-            app:entryValues="@array/ssid_recheck_values"
-            app:key="ssid_recheck"
-            app:title="Recheck"
+            app:entries="@array/wifi_recheck_entries"
+            app:entryValues="@array/wifi_recheck_values"
+            app:key="wifi_recheck"
+            app:title="Wifi Recheck"
             app:useSimpleSummaryProvider="true" />
-    </PreferenceCategory>
+
+  </PreferenceCategory>
 
     <!--
     <PreferenceCategory app:title="@string/messages_header">
