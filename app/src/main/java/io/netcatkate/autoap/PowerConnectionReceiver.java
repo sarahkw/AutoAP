@@ -8,23 +8,37 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 
 public class PowerConnectionReceiver extends BroadcastReceiver {
+
+    private boolean mStartedByMe = false;
+
+    private static boolean isConnectedToWifi(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
+        Network activeNetwork = connectivityManager.getActiveNetwork();
+        if (activeNetwork == null) {
+            return false;
+        } else {
+            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork);
+            if (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
-            Network activeNetwork = connectivityManager.getActiveNetwork();
-            if (activeNetwork == null) {
+            mStartedByMe = false;
+            if (!isConnectedToWifi(context)) {
                 ApControl.start();
-            } else {
-                NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork);
-                if (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
-                    // No-op
-                } else {
-                    ApControl.start();
-                }
+                mStartedByMe = true;
             }
         } else if (intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)) {
-            ApControl.stop();
+            if (mStartedByMe) {
+                ApControl.stop();
+                mStartedByMe = false;
+            }
         }
     }
 }
