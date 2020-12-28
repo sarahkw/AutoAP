@@ -23,7 +23,7 @@ public class AutoAPService extends Service {
         Notification notification = new Notification.Builder(this, ServiceNotification.CHANNEL_ID)
                 .setContentTitle("Auto AP")
                 .setContentText("Active")
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setSmallIcon(R.drawable.ic_service)
                 .setContentIntent(pendingIntent)
                 .build();
         startForeground(1, notification);
