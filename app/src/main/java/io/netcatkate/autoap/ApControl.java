@@ -5,6 +5,16 @@ import android.util.Log;
 import java.io.IOException;
 
 public class ApControl {
+
+    /**
+       These commands are hardcoded for Android 10, with the Magisk version of su.
+
+       See:
+
+       https://android.googlesource.com/platform/frameworks/base/+/refs/heads/android10-release/core/java/android/net/IConnectivityManager.aidl
+       https://android.stackexchange.com/questions/111226/using-adb-shell-how-i-can-disable-hotspot-tethering-on-lollipop-nexus-5/197725#197725
+     */
+
     public static void start() {
         Log.i("ApControl", "start");
         try {
